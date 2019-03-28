@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", Prompter);
 function Prompter() {
     var person = prompt("insert name", "name");
     if (person != null) {
