@@ -186,7 +186,7 @@ function generateDeck():void{
 function generatePile():void{
     let n:number = Math.floor(Math.random() * (deck.length-1)); 
     topCard=deck[n];   
-    deck.splice(n,1);
+    deck.splice(n,1); /*splice = 1, wievielte stelle im array, 2, wie viele Elemente im Array werden entfernt? 3, was wird an dieser Stelle eingefügt?""*/
     
     let write:string = "";
         write += `<div class="CardBorder">`;
