@@ -3,6 +3,10 @@
         Datum: (07.04.2019) Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
         Aufgaben wurden in Gruppenarbeit gelöst: Bastian Culig, Kathrin Wurz, Lisa Sanchez, Daniel Mainberger, Alexandru Mihai, Carlotta Reinders.
 */
+
+html{
+    background: lightgoldenrodyellow;
+}
 .CardBorder{
     border: black solid 3px;
     width: 160px;
@@ -12,6 +16,9 @@
     font-size: 5rem;
     display: inline-block;
     text-align: center;
+}
+#Headline1{
+    font-size: 40px;
 }
 
 .Red{
