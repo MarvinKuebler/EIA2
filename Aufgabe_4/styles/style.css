@@ -1,0 +1,45 @@
+/*      
+        Aufgabe: (Aufgabe 2 DynHTML: Mau Mau) Name: Marvin Kübler 
+        Datum: (07.04.2019) Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+        Aufgaben wurden in Gruppenarbeit gelöst: Bastian Culig, Kathrin Wurz, Lisa Sanchez, Daniel Mainberger, Alexandru Mihai, Carlotta Reinders.
+*/
+
+html{
+    background: lightgoldenrodyellow;
+}
+.CardBorder{
+    border: black solid 3px;
+    width: 160px;
+    height: 224px;
+    margin: 25px;
+    font-weight: bold;
+    font-size: 5rem;
+    display: inline-block;
+    text-align: center;
+}
+#Headline1{
+    font-size: 40px;
+}
+
+.Red{
+    color: red;
+}
+
+.Black{
+    color: black;
+}
+
+.Symbol{
+    height: 40px;
+    margin: 25px 25px 0px 25px;
+}
+
+.CardBack{
+    width: 160px;
+    height: 224px;
+    margin: 0px;
+}
+
+#Pile {
+    margin-bottom: 70px;
+}
