@@ -1,7 +1,7 @@
 
 @media only screen and (max-width: 500px) {
     body {
-        background-color: rgb(79, 195, 241);
+        background-color: rgb(188, 202, 63);
     }
     fieldset{
         position: relative; 
@@ -13,7 +13,23 @@
         max-width: 100px;
         max-height: 150px;
     }
+    #orderDone{
+        display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: transparent;
+    border: 1px solid black;
+    }
     
+}
+#orderDone{
+    display: block;
+margin-left: auto;
+margin-right: auto;
+background: transparent;
+border: 1px solid black;
+
+
 }
 #IceCreamLogo {
     max-width: 200px;
@@ -22,13 +38,14 @@
     margin-left: auto;
     margin-right: auto;
 }
-#Headline{
+.Headline{
     text-align: center;
     font-family: 'Dancing Script', cursive;
 }
 body{
     background-color: antiquewhite;
     font-family: 'Raleway', sans-serif;font-family: 'Raleway', sans-serif;
+
 }
 fieldset{
     color: black;

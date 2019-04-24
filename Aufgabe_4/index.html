@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" 
-      content="width=device-width,
+    <meta name="viewport" content="width=device-width,
                initial-scale=1.0,
                minimum-scale=1.0">
     <title>Get Your Ice</title>
@@ -21,19 +20,21 @@
         Datum: (18.04.2019) 
 -->
     <header>
-        <h1 id="Headline">Get Your Ice Here </h1>
+        <h1 class="Headline">Get Your Ice Here </h1>
         <div>
             <img src="img/IceCream.png" id="IceCreamLogo">
         </div>
     </header>
+
     <main>
+
         <form>
             <fieldset id="ShareYourData">
                 <legend>Tell Us Where U live!</legend>
-                <h2 id="Headline"> Adress </h2>
+                <h2 class="Headline"> Adress </h2>
                 <div class="formData">
                     <div class="formName">
-                        <label for="forename"></label>
+                        <label for="forename">Name</label>
                         <input type="text" id="forename" name="forename" placeholder="Name">
                         <label for="surname">Nachname</label>
                         <input type="text" id="surname" name="surname" placeholder="Name">
@@ -47,107 +48,95 @@
                         <input type="number" id="numberHouse" name="count2" step="1" min="0" max="100" value="0"
                             required="required">
                     </div>
-                </fieldset>
-                <br>
-                    <fieldset id="DeliveryOrPikUp">
-                        <legend>Choose between Delivery or Pick-Up</legend>
-                        <h2 id="Headline">What Do U Want?</h2>
-                        <div class="DeliveryOrPikUp">
-                            <input type="radio" name="shipping" id="Delivery" alt="asDelivery" value="asDelivery"
-                                EDprice="2">
-                            <label for="Delivery">Delivery</label>
-                        </div>
-                        <div class="DeliveryOrPikUp">
-                            <input type="radio" name="shipping" id="Pick-Up" alt="asPickUp" value="asPickUp"
-                                EDprice="5">
-                            <label for="Pick-Up">Pick-Up</label>
-                        </div>
-                    </fieldset>
-                    <br>
-                    <fieldset id="WaffleOrCup">
-                        <legend> Waffle or Cup ?</legend>
-                        <h2 id="Headline"> What Do U Want?</h2>
-                        <div class="WaffleOrCup">
-                            <input type="radio" name="container" id="waffle" alt="Waffel" value="0">
-                            <label for="waffle">Waffle</label>
-                        </div>
-                        <div class="WaffleOrCup">
-                            <input type="radio" name="container" id="cup" alt="Becher" value="0">
-                            <label for="cup">Cup</label>
-                        </div>
-                    </fieldset>
-                    <br>
+            </fieldset>
+        </form>
 
-                    <fieldset id="SelectYourFlavour">
+        <br>
+        <fieldset id="DeliveryOrPikUp">
+            <legend>Choose between Delivery or Pick-Up</legend>
+            <h2 class="Headline">What Do U Want?</h2>
+            <div class="DeliveryOrPikUp">
+                <input type="radio" name="shipping" id="Delivery" alt="asDelivery" value="5" EDprice="2">
+                <label for="Delivery">Delivery</label>
+            </div>
+            <div class="DeliveryOrPikUp">
+                <input type="radio" name="shipping" id="Pick-Up" alt="asPickUp" value="0" EDprice="5">
+                <label for="Pick-Up">Pick-Up</label>
+            </div>
+        </fieldset>
+        <br>
+        <fieldset id="WaffleOrCup">
+            <legend> Waffle or Cup ?</legend>
+            <h2 class="Headline"> What Do U Want?</h2>
+            <div class="WaffleOrCup">
+                <input type="radio" name="container" id="waffle" alt="Waffel" value="0.5">
+                <label for="waffle">Waffle</label>
+            </div>
+            <div class="WaffleOrCup">
+                <input type="radio" name="container" id="cup" alt="Becher" value="1">
+                <label for="cup">Cup</label>
+            </div>
+        </fieldset>
+        <br>
+        <fieldset id="ICE_Flavours">
+            <legend>Kugel 1,20€ </legend>
 
-                        <legend>Choose Your Flavour!</legend>
-                        <h2 id="Headline"> Flavours </h2>
-                        <div class="SelectYourFlavour">
-                            <select name="SelectYourFlavour" id="variety">
-                                <option value="[Eissorte]" selected="">You Choose!</option>
-                                <option value="White Choclate">White Choclate</option>
-                                <option value="Vanilla-Cream">Vanilla-Cream</option>
-                                <option value="Strawberry-Mango">Strawberry-Mango</option>
-                                <option value="Oreo">Oreo</option>
-                                <option value="Choclate-Chip">Choclate-Chip</option>
-                                <option value="Straciatella">Straciatella</option>
-                            </select>
-                            <input type="number" name="count1" step="1" min="0" max="6" value="1"> amount
-                        </div>
-                        <div class="SelectYourFlavour">
-                            <select name="SelectYourFlavour" id="variety">
-                                <option value="[Eissorte]" selected="">You Choose!</option>
-                                <option value="White Choclate">White Choclate</option>
-                                <option value="Vanilla-Cream">Vanilla-Cream</option>
-                                <option value="Strawberry-Mango">Strawberry-Mango</option>
-                                <option value="Oreo">Oreo</option>
-                                <option value="Choclate-Chip">Choclate-Chip</option>
-                                <option value="Straciatella">Straciatella</option>
-                            </select>
-                            <input type="number" name="count2" step="1" min="0" max="6" value="1"> amount
-                        </div>
-                        <div class="SelectYourFlavour">
-                            <select name="SelectYourFlavour" id="variety">
-                                <option value="[Eissorte]" selected="">You Choose!</option>
-                                <option value="White Choclate">White Choclate</option>
-                                <option value="Vanilla-Cream">Vanilla-Cream</option>
-                                <option value="Strawberry-Mango">Strawberry-Mango</option>
-                                <option value="Oreo">Oreo</option>
-                                <option value="Choclate-Chip">Choclate-Chip</option>
-                                <option value="Straciatella">Straciatella</option>
-                            </select>
-                            <input type="number" name="count2" step="1" min="0" max="6" value="1"> amount
-                        </div>
-                        <div class="SelectYourFlavour">
-                            <select name="SelectYourFlavour" id="variety">
-                                <option value="[Eissorte]" selected="">You Choose!</option>
-                                <option value="White Choclate">White Choclate</option>
-                                <option value="Vanilla-Cream">Vanilla-Cream</option>
-                                <option value="Strawberry-Mango">Strawberry-Mango</option>
-                                <option value="Oreo">Oreo</option>
-                                <option value="Choclate-Chip">Choclate-Chip</option>
-                                <option value="Straciatella">Straciatella</option>
-                            </select>
-                            <input type="number" name="count2" step="1" min="0" max="6" value="1"> amount
-                        </div>
-                    </fieldset>
-                    <br>
-                    <fieldset id="SelectYourTopping">
-                        <legend>Choose Your Topping</legend>
-                        <h2 id="Headline"> Toppings </h2>
-                        <div class="SelectYourTopping">
-                            <input type="checkbox" name="SelectYourTopping1" id="Chocolate-CreamTopping"
-                                alt="Chocolate-CreamTopping" value="0.8">
-                            <label for="chocolateTopping">Choclate-Cream </label>
-                        </div>
-                        <div class="SelectYourTopping">
-                            <input type="checkbox" name="SelectYourTopping2" id="OreoTopping" alt="OreoTopping"
-                                value="0.8">
-                            <label for="crumbleTopping">Oreo</label>
-                        </div>
-                        <div class="SelectYourTopping">
-                            <input type="checkbox" name="SelectYourTopping3" id="FruitTopping" alt="FruitTopping"
-                                value="0.6">
-                            <label for="creamTopping">Fruits</label>
-                        </div>
-                    </fieldset>
+            <input type="checkbox" name="White-Chocolate-Chip" value="1.0" id="1 x White-Chocolate-Chip" />
+            <label for="White-Chocolate-Chip">White-Chocolate-Chip</label>
+            <br>
+            <input type="checkbox" name="Chocolate-Chip" value="1.0" id="1 x Choclate-Chip" />
+            <label for="Schokolade">Choclate-Chip</label>
+            <br>
+            <input type="checkbox" name="Strawberry-Mango" value="1.0" id="1 x Strawberry-Mango" />
+            <label for="Strawberry-Mango">Strawberry-Mango</label>
+            <br>
+            <input type="checkbox" name="Straciatella" value="1.0" id="1 x Straciatella" />
+            <label for="Straciatella">Straciatella</label>
+            <br>
+            <input type="checkbox" name="Oreo" value="1.0" id="1 x Oreo" />
+            <label for="Oreo">Oreo</label>
+            <br>
+            <input type="checkbox" name="Hazelnut" value="1.0" id="1 x Hazelnut" />
+            <label for="Haazelnut">Hazelnut</label>
+            <br>
+            <input type="checkbox" name="Banana-Split" value="1.0" id="1 x Banana-Split" />
+            <label for="Banana-Split">Banana-Split</label>
+        </fieldset>
+
+
+        <br>
+        <fieldset id="SelectYourTopping">
+            <legend>Choose Your Topping</legend>
+            <h2 class="Headline"> Toppings </h2>
+            <div class="SelectYourTopping">
+                <input type="checkbox" name="SelectYourTopping1" id="Chocolate-CreamTopping"
+                    alt="Chocolate-CreamTopping" value="0.8">
+                <label for="chocolateTopping">Choclate-Cream </label>
+            </div>
+            <div class="SelectYourTopping">
+                <input type="checkbox" name="SelectYourTopping2" id="OreoTopping" alt="OreoTopping" value="0.8">
+                <label for="crumbleTopping">Oreo</label>
+            </div>
+            <div class="SelectYourTopping">
+                <input type="checkbox" name="SelectYourTopping3" id="FruitTopping" alt="FruitTopping" value="0.6">
+                <label for="creamTopping">Fruits</label>
+            </div>
+        </fieldset>
+        <br>
+        <fieldset id="thatsyourorder">
+            <h2 class="Headline">That's Your Order</h2>
+            <div id="yourOrder"></div>
+            <div id="price"></div>
+            <div id="viewedOrders"> </div>
+
+        </fieldset>
+        <br>
+        <button id="orderDone"> place your order </button>
+        <br>
+        <br>
+    </main>
+</body>
+<script src="js/main.js"></script>
+
+
+</html>

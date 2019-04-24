@@ -1,54 +1,49 @@
-namespace EIS_DEALER{
-    window.addEventListener("load",init);
-    document.addEventListener("load",init);
-    document.getElementById("oderDone").addEventListener("click", finishedOrder)
-}
-function init(_event: Event): void {
-    console.log(init);
+namespace aufgabe4 {
 
-    let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
+    window.addEventListener("load", init);
 
-    for (let i: number = 0; i < fieldsets.length; i++) {
-        let fieldset: HTMLFieldSetElement = fieldsets[i];
-        fieldset.addEventListener("change", orderSomething);
-        console.log(fieldset);
+    function init(_event: Event): void {
+
+        document.getElementById("orderDone").addEventListener("click", CheckOrder);
+
+        let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
+
+        for (let i: number = 0; i < fieldsets.length; i++) {
+            let fieldset: HTMLFieldSetElement = fieldsets[i];
+            fieldset.addEventListener("change", OrderSumUp);
+        }
     }
-}
-function orderSomething(_event: Event): void {
-    let orderSum: number = 0;
-    let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-    document.getElementById("SelectYourFlavour").innerHTML = "SelectYourFlavour: ";
-    document.getElementById("SelectYourTopping").innerHTML = "SelectYourTopping: ";
-    document.getElementById("WaffleOrCup").innerHTML = "WaffleOrCup: ";
-    document.getElementById("DeliveryOrPikUp").innerHTML = "DeliveryOrPikUp: ";
-    document.getElementById("orderPrice").innerHTML = "Preis: ";
-    for (let i: number = 0; i < orderSelections.length; i++) {
-        if (orderSelections[i].checked == true) {
-            console.log(orderSum);
-            if (orderSelections[i].name == "SelectYourTopping1" || orderSelections[i].name == "SelectYourTopping2" || orderSelections[i].name == "SelectYourTopping3") {
-                let target = document.createElement("li");
-                target.innerHTML = `${orderSelections[i].alt}, `;
-                document.getElementById("SelectYourTopping").appendChild(target);
-            } else if (orderSelections[i].name == "container") {
-                let target =document.createElement("li");
-                target.innerHTML=`${orderSelections[i].alt}`;
-                        document.getElementById("WaffleOrCup").appendChild(target);
-            } else if (orderSelections[i].name == "shipping") {
-                let target =document.createElement("li");
-                target.innerHTML=`${orderSelections[i].alt}`;
-                        document.getElementById("DeliveryOrPikUp").appendChild(target);
+    /*Funktion Auflistung der Bestellung + Bestellsumme */
+    function OrderSumUp(_event: Event): void {
+        let startSumme: number = 0;
+        let inputOrder: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        document.getElementById("viewedOrders").innerHTML = "";
+        for (let i: number = 0; i < inputOrder.length; i++) {
+            if (inputOrder[i].checked == true) {
+                let gesamtPreis: number = Number(inputOrder[i].value)
+                startSumme += gesamtPreis;
+                document.getElementById("price").innerHTML = startSumme.toFixed(2).toString() + " " + "€";
+                let OrderCheckUp = document.createElement("li");
+                OrderCheckUp.innerHTML = `${inputOrder[i].id}`
+                document.getElementById("viewedOrders").appendChild(OrderCheckUp)
             }
         }
-        if (orderSelections[i].name == "White Choclate" || orderSelections[i].name == "Vanilla-Cream" || orderSelections[i].name == "Strawberry-Mango" || orderSelections[i].name == "Oreo" || orderSelections[i].name == "Choclate-Chip" || orderSelections[i].name == "Straciatella") {
-            console.log(orderSum);
-            let target = document.createElement("li");
-            target.innerHTML = `${orderSelections[i].value}, `;
-            document.getElementById("SelectYourFlavour").appendChild(target);
-        }
-        document.getElementById("orderPrice").innerHTML = `Bestellzusammenfassung:   ${orderSum} €`;
     }
-
-}
-function finishedOrder(): void {
-    let
-}
+    /*Funktion zum Prüfen fehlender Eingaben */
+    function CheckOrder(_event: Event): void {
+        let CustomerData: string[] = [];
+        let kundenEingabe: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        for (let i: number = 0; i < kundenEingabe.length; i++) {
+            if (kundenEingabe[i].value == "") {
+                let benoetigteDaten: string = kundenEingabe[i].name;
+                CustomerData.push(benoetigteDaten);
+            }
+        }
+        if (CustomerData.length == 0) {
+            alert("Thanks for your Order!");
+        }
+        else {
+            alert(`${CustomerData} Hold on! You forgot something!.`);
+        }
+    }
+} 
