@@ -13,15 +13,15 @@ namespace aufgabe4 {
             fieldset.addEventListener("change", OrderSumUp);
         }
     }
-    /*Funktion Auflistung der Bestellung + Bestellsumme */
+    /*Order Sum Up */
     function OrderSumUp(_event: Event): void {
         let startSumme: number = 0;
         let inputOrder: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         document.getElementById("viewedOrders").innerHTML = "";
         for (let i: number = 0; i < inputOrder.length; i++) {
             if (inputOrder[i].checked == true) {
-                let gesamtPreis: number = Number(inputOrder[i].value)
-                startSumme += gesamtPreis;
+                let wholePrice: number = Number(inputOrder[i].value)
+                startSumme += wholePrice;
                 document.getElementById("price").innerHTML = startSumme.toFixed(2).toString() + " " + "€";
                 let OrderCheckUp = document.createElement("li");
                 OrderCheckUp.innerHTML = `${inputOrder[i].id}`
@@ -29,7 +29,7 @@ namespace aufgabe4 {
             }
         }
     }
-    /*Funktion zum Prüfen fehlender Eingaben */
+    /* check missing Data */
     function CheckOrder(_event: Event): void {
         let CustomerData: string[] = [];
         let kundenEingabe: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");

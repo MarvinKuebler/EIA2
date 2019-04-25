@@ -9,15 +9,15 @@ var aufgabe4;
             fieldset.addEventListener("change", OrderSumUp);
         }
     }
-    /*Funktion Auflistung der Bestellung + Bestellsumme */
+    /*Order Sum Up */
     function OrderSumUp(_event) {
         let startSumme = 0;
         let inputOrder = document.getElementsByTagName("input");
         document.getElementById("viewedOrders").innerHTML = "";
         for (let i = 0; i < inputOrder.length; i++) {
             if (inputOrder[i].checked == true) {
-                let gesamtPreis = Number(inputOrder[i].value);
-                startSumme += gesamtPreis;
+                let wholePrice = Number(inputOrder[i].value);
+                startSumme += wholePrice;
                 document.getElementById("price").innerHTML = startSumme.toFixed(2).toString() + " " + "€";
                 let OrderCheckUp = document.createElement("li");
                 OrderCheckUp.innerHTML = `${inputOrder[i].id}`;
@@ -25,7 +25,7 @@ var aufgabe4;
             }
         }
     }
-    /*Funktion zum Prüfen fehlender Eingaben */
+    /* check missing Data */
     function CheckOrder(_event) {
         let CustomerData = [];
         let kundenEingabe = document.getElementsByTagName("input");
