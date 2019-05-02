@@ -1,55 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<title>IceDealerReloaded</title>
-<link rel="stylesheet" type="text/css" href="style/stylesheet.css">
-<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/daten.js" type="text/javascript" charset="utf-8"></script>
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-</head>
-<body>
-	<img src ="img/IceCream.png" id="IceCreamLogo">
-	<h1 class="Headline">Ice Dealer Reloaded</h1>
-	<fieldset>
-		<legend class="Headline">Tell Us Where U live</legend>
-		<div id="PersonalData"></div>
-	</fieldset>
-	<br>
-	<fieldset>
-		<legend class="Headline">Delivery Or Pick Up?</legend>
-		<div id="DeliveryOrPickUp"></div>
-	</fieldset>
-	<br>
-	<fieldset>
-		<legend class="Headline">Cup Or Waffle ?</legend>
-		<div id="Container"></div>
-	</fieldset>
-	<br>
-	
-	<fieldset>
-		<legend class="Headline">Choose Your Flavour!</legend>
-		<div id="Flavour"></div>
-	</fieldset>
-	<br>
-	<fieldset>
-		<legend class="Headline">Choose Your Topping!</legend>
-		<div id="Topping"></div>
-	</fieldset>
-	<br>
-	
-	
-	<fieldset>
-		<legend class="Headline">Choose a Side Fruit if U Want</legend>
-		<div id="SideFruit"></div>
-	</fieldset>
-<br>
-	<div id="CheckOrder"></div>
+<html lang="de">
 
-	<div id="ShoppingBasket"></div>
-	<br>
-	<br>
-	<br>
+<head>
+	<meta charset="UTF-8">
+	<title>Aufgabe 5: Eisdealer re-loaded</title>
+
+	<script src="js/daten.js"></script>
+	<script src="js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="style/stylesheet.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
+
+
+</head>
+
+
+<body>
+
+	<header>
+			
+		<h1 class="Headline"> Ice Dealer Reloaded</h1>
+		<img src ="img/IceCream.png" id="IceCreamLogo">
+	</header>
+
+	<fieldset>
+		<legend class="Headline">Delivery Or Pick Up ?</legend>
+		<input type="checkbox" name="Shipping" id="Pick Up" value="0" />
+		<label for="Shipping">Pick Up</label>
+		<br>
+		<input type="checkbox" name="Shipping" id="Delivery" value="3" />
+		<label for="Shipping">Delivery, you need to pay (+3,00€) for that delivery, think twice!</label>
+	</fieldset>
+
+	<fieldset id="CustomerData">
+		<legend class="Headline">please fill out correctly</legend>
+		<input type="text" name="Name" placeholder="Name" required />
+		<br>
+		<input type="text" name=" Vorname" placeholder="Forename" required />
+		<br>
+		<input type="text" name=" Straße" placeholder="Street" required />
+		<br>
+		<input type="text" name=" Hausnummer" placeholder="Number" required />
+		<br>
+		<input type="text" name=" Postleitzahl" placeholder="PLZ" pattern="[0-9]{5}" required />
+		<br>
+		<input type="text" name=" Ort" placeholder="City" required />
+	</fieldset>
+
+
+	<fieldset id="OrderOverview">
+		<legend class="Headline">That's Your Order</legend>
+		<div id="Flavours"></div>
+		<div id="CupOrWaffle"></div>
+		<div id="DeliveryOrPickUp"></div>
+		<div id="ThatsYourOrder"></div>
+		<button id="CheckOut">Get Your Ice!</button>
+	</fieldset>
+
 </body>
+
 </html>

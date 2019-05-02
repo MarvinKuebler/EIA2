@@ -1,36 +1,24 @@
 var IceDealerReloaded;
 (function (IceDealerReloaded) {
-    IceDealerReloaded.ContainerData = [
-        { element: "Container", name: "", preis: 0 },
-        { element: "Container", name: "Cup", preis: 2 },
-        { element: "Container", name: "Waffle", preis: 0 }
-    ];
-    IceDealerReloaded.TheTopping = [
-        { element: "Topping", name: "", preis: 0 },
-        { element: "Topping", name: "Oreo", preis: 0 },
-        { element: "Topping", name: "Cream", preis: 2 },
-        { element: "Topping", name: "Choclate Cream", preis: 0 },
-        { element: "Topping", name: "White-Choclate Cream", preis: 2 },
-        { element: "Topping", name: "Bounty", preis: 0 }
-    ];
-    IceDealerReloaded.IceCreamFlavours = [
-        { element: "White-Choclate-Chip", name: "White-Choclate-Chip", preis: 1 },
-        { element: "Choclate-Chip", name: "Choclate-Chip", preis: 1 },
-        { element: "Strawberry-Mango", name: "Strawberry-Mango", preis: 1 },
-        { element: "Straciatella", name: "Straciatella", preis: 1 },
-        { element: "Oreo", name: "Oreo", preis: 1 },
-        { element: "Hazelnut", name: "Hazelnut", preis: 1 },
-        { element: "Banana-Split", name: "Banana-Split", preis: 1 },
-    ];
-    IceDealerReloaded.SideFruits = [
-        { element: "Banana", name: "Banana", preis: 2 },
-        { element: "Mixed Berries", name: "Mixed Berries", preis: 2 },
-        { element: "Tropical Fruits", name: "Tropical Fruits", preis: 2 }
-    ];
-    IceDealerReloaded.DeliveryOrPickUp = [
-        { element: "Pick Up", name: "", preis: 0 },
-        { element: "Pick Up", name: "Pick Up", preis: 0 },
-        { element: "Delivery", name: "Delivery", preis: 5 },
-    ];
+    IceDealerReloaded.sortimentArray = {
+        "eisSorten": [
+            { Alias: "White Choclate", price: 1, inputtype: "number" },
+            { Alias: "Choclate", price: 1, inputtype: "number" },
+            { Alias: "Strawberry-Mango", price: 1, inputtype: "number" },
+            { Alias: "Stracciatella", price: 1, inputtype: "number" },
+            { Alias: "Oreo", price: 1, inputtype: "number" },
+            { Alias: "Hazelnut", price: 1, inputtype: "number" },
+            { Alias: "Banana-Split", price: 1, inputtype: "number" }
+        ],
+        "behaelter": [
+            { Alias: "Waffle", price: 0, inputtype: "radio" },
+            { Alias: "Cup", price: 2, inputtype: "radio" }
+        ],
+        "toppingSorten": [
+            { Alias: "Oreo", price: 1, inputtype: "number" },
+            { Alias: "Choclate-Cream", price: 1, inputtype: "number" },
+            { Alias: "Bounty", price: 1, inputtype: "number" },
+            { Alias: "Mixed Fruits", price: 1, inputtype: "number" }
+        ],
+    };
 })(IceDealerReloaded || (IceDealerReloaded = {}));
-//# sourceMappingURL=daten.js.map
