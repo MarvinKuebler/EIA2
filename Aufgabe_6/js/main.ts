@@ -43,7 +43,7 @@ namespace IceDealerReloaded{
     function elemente(daten: KeyArray): void {
         document.body.appendChild(fieldset);
         legend.innerHTML = "Our Flavours, Scoop and Topping: each 1€";
-        document.getElementsByClassName("Headline");
+        document.getElementById("HEROKU").appendChild(fieldset);
         fieldset.appendChild(legend);
         for (let datenArray in daten) {
             let value: IceDealerData[] = daten[datenArray];

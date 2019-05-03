@@ -17,47 +17,47 @@
 
 
 <body>
+	<form id="HEROKU" action="https://https://marvinkuebler.herokuapp.com/" target="_blank" method="get">
+		<header>
 
-	<header>
-			
-		<h1 class="Headline"> Ice Dealer Reloaded</h1>
-		<img src ="img/IceCream.png" id="IceCreamLogo">
-	</header>
+			<h1 class="Headline"> Ice Dealer Reloaded</h1>
+			<img src="img/IceCream.png" id="IceCreamLogo">
+		</header>
 
-	<fieldset>
-		<legend class="Headline">Delivery Or Pick Up ?</legend>
-		<input type="checkbox" name="Shipping" id="Pick Up" value="0" />
-		<label for="Shipping">Pick Up</label>
-		<br>
-		<input type="checkbox" name="Shipping" id="Delivery" value="3" />
-		<label for="Shipping">Delivery, you need to pay (+3,00€) for that delivery, think twice!</label>
-	</fieldset>
+		<fieldset>
+			<legend class="Headline">Delivery Or Pick Up ?</legend>
+			<input type="checkbox" name="Shipping" id="Pick Up" value="0" />
+			<label for="Shipping">Pick Up</label>
+			<br>
+			<input type="checkbox" name="Shipping" id="Delivery" value="3" />
+			<label for="Shipping">Delivery, you need to pay (+3,00€) for that delivery, think twice!</label>
+		</fieldset>
 
-	<fieldset id="CustomerData">
-		<legend class="Headline">please fill out correctly</legend>
-		<input type="text" name="Name" placeholder="Name" required />
-		<br>
-		<input type="text" name=" Vorname" placeholder="Forename" required />
-		<br>
-		<input type="text" name=" Straße" placeholder="Street" required />
-		<br>
-		<input type="text" name=" Hausnummer" placeholder="Number" required />
-		<br>
-		<input type="text" name=" Postleitzahl" placeholder="PLZ" pattern="[0-9]{5}" required />
-		<br>
-		<input type="text" name=" Ort" placeholder="City" required />
-	</fieldset>
+		<fieldset id="CustomerData">
+			<legend class="Headline">please fill out correctly</legend>
+			<input type="text" name="Name" placeholder="Name" required />
+			<br>
+			<input type="text" name=" Vorname" placeholder="Forename" required />
+			<br>
+			<input type="text" name=" Straße" placeholder="Street" required />
+			<br>
+			<input type="text" name=" Hausnummer" placeholder="Number" required />
+			<br>
+			<input type="text" name=" Postleitzahl" placeholder="PLZ" pattern="[0-9]{5}" required />
+			<br>
+			<input type="text" name=" Ort" placeholder="City" required />
+		</fieldset>
 
 
-	<fieldset id="OrderOverview">
-		<legend class="Headline">That's Your Order</legend>
-		<div id="Flavours"></div>
-		<div id="CupOrWaffle"></div>
-		<div id="DeliveryOrPickUp"></div>
-		<div id="ThatsYourOrder"></div>
-		<button id="CheckOut">Get Your Ice!</button>
-	</fieldset>
-
+		<fieldset id="OrderOverview">
+			<legend class="Headline">That's Your Order</legend>
+			<div id="Flavours"></div>
+			<div id="CupOrWaffle"></div>
+			<div id="DeliveryOrPickUp"></div>
+			<div id="ThatsYourOrder"></div>
+			<button id="CheckOut" type="submit">Get Your Ice!</button>
+		</fieldset>
+	</form>
 </body>
 
 </html>

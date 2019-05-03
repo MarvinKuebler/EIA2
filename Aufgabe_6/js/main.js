@@ -39,7 +39,7 @@ var IceDealerReloaded;
     function elemente(daten) {
         document.body.appendChild(fieldset);
         legend.innerHTML = "Our Flavours, Scoop and Topping: each 1€";
-        document.getElementsByClassName("Headline");
+        document.getElementById("HEROKU").appendChild(fieldset);
         fieldset.appendChild(legend);
         for (let datenArray in daten) {
             let value = daten[datenArray];
