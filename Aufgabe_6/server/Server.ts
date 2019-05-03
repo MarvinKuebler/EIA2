@@ -24,7 +24,7 @@ import * as Http from "http"; //Node Modul wird importiert
 		_response.setHeader("Access-Control-Allow-Origin", "*"); //anfragen bekommen serverzugriff
 
 		_response.write(_request.url); //
-
-		_response.end(); //Dem Server wird signalisiert, dass die Antwort vollständig ist
+        console.log(_request.url);
+		_response.end(); //Dem Server wird signalisiert, dass die Antwort vollständig ist --- server beenden strg + c 
 	} 
  //Ende namespace
