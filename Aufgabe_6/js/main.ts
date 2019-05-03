@@ -70,6 +70,8 @@ namespace IceDealerReloaded{
             }
 
             if (OrderInput[i].checked == true && OrderInput[i].getAttribute("name") == "radiobutton") {
+                let WholePrice: number = Number(OrderInput[i].getAttribute("price"));
+                startSumme += WholePrice;
                 document.getElementById("ThatsYourOrder").innerHTML = startSumme.toFixed(2).toString() + " " + "€";
                 let behaelterWahl: HTMLElement = document.createElement("li");
                 behaelterWahl.innerHTML = `${OrderInput[i].getAttribute("id")}`;
