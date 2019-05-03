@@ -70,7 +70,7 @@ var IceDealerReloaded;
                 document.getElementById("CupOrWaffle").appendChild(behaelterWahl);
             }
             if (OrderInput[i].checked == true && OrderInput[i].name == "Shipping") {
-                let WholePrice = Number(OrderInput[i].getAttribute("value"));
+                let WholePrice = Number(OrderInput[i].getAttribute("price"));
                 startSumme += WholePrice;
                 document.getElementById("ThatsYourOrder").innerHTML = startSumme.toFixed(2).toString() + " " + "€";
                 let ChoiceOfDelivery = document.createElement("li");

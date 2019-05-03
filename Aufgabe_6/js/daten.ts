@@ -23,7 +23,7 @@ namespace IceDealerReloaded {
 
         "behaelter": [
             { Alias: "Waffle", price: 0, inputtype: "radio" },
-            { Alias: "Cup", price: 2, inputtype: "radio" }
+            { Alias: "Cup", price: 0, inputtype: "radio" }
         ],
 
         "toppingSorten": [
