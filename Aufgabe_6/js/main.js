@@ -20,9 +20,10 @@ var IceDealerReloaded;
         label.innerHTML = OurFlavours.Alias;
         if (OurFlavours.inputtype == "radio") {
             input.setAttribute("type", OurFlavours.inputtype);
-            input.setAttribute("name", "radiobutton");
+            input.setAttribute("name", "Cup or Waffle");
             input.setAttribute("price", "2");
             input.setAttribute("id", OurFlavours.Alias);
+            input.setAttribute("value", OurFlavours.Alias);
         }
         if (OurFlavours.inputtype == "number") {
             input.setAttribute("type", OurFlavours.inputtype);

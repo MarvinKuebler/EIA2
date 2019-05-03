@@ -25,7 +25,7 @@ namespace IceDealerReloaded{
             input.setAttribute("name", "Cup or Waffle");
             input.setAttribute("price", "2");
             input.setAttribute("id", OurFlavours.Alias);
-            input.setAttribute("value", OurFlavours.Alias)
+            input.setAttribute("value", OurFlavours.Alias);
         }
 
         if (OurFlavours.inputtype == "number") {
