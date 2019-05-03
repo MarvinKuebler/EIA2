@@ -1,6 +1,6 @@
 import * as Http from "http"; //Node Modul wird importiert
 
-namespace L05_Server { //namespace
+ 
 	console.log("Starting server"); //console.log gibt "starting server" in Konsole aus.
 
 	let port: number = Number(process.env.PORT); //Port als Zahlenwert der Variable
@@ -27,4 +27,4 @@ namespace L05_Server { //namespace
 
 		_response.end(); //Dem Server wird signalisiert, dass die Antwort vollständig ist
 	} 
-} //Ende namespace
+ //Ende namespace
