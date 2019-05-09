@@ -1,0 +1,69 @@
+
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: rgb(188, 202, 63);
+    }
+    fieldset{
+        position: relative; 
+        display: block;
+    margin-left: auto;
+    margin-right: auto;   
+    }
+    #IceCreamLogo{
+        max-width: 100px;
+        max-height: 150px;
+    }
+    #orderDone{
+        display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: transparent;
+    border: 1px solid black;
+    }
+    
+}
+#orderDone{
+    display: block;
+margin-left: auto;
+margin-right: auto;
+background: transparent;
+border: 1px solid black;
+
+
+}
+#IceCreamLogo {
+    max-width: 200px;
+    max-height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Headline{
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+}
+body{
+    background-color: antiquewhite;
+    font-family: 'Raleway', sans-serif;font-family: 'Raleway', sans-serif;
+
+}
+fieldset{
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+    border-block-start-width: 1px;
+    border-block-end-width: 5px;
+    float: none;
+    max-width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+#DeliveryOrPickUp{
+    position: center;
+    text-align: center;
+
+    
+}
+
