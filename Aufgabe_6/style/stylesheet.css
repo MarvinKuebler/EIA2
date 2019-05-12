@@ -62,8 +62,19 @@ fieldset{
   }
 #DeliveryOrPickUp{
     position: center;
-    text-align: center;
+    text-align: center;    
+}
 
-    
+#SummaryOrder{
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+    border-block-start-width: 1px;
+    border-block-end-width: 5px;
+    float: none;
+    max-width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 

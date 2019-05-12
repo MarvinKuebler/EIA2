@@ -1,5 +1,5 @@
 import * as Http from "http"; //Node Modul wird importiert
-
+import * as Url from "url";
  
 	console.log("Starting server"); //console.log gibt "starting server" in Konsole aus.
 
@@ -24,7 +24,17 @@ import * as Http from "http"; //Node Modul wird importiert
 		_response.setHeader("Access-Control-Allow-Origin", "*"); //anfragen bekommen serverzugriff
 
 		_response.write(_request.url); //
-        console.log(_request.url);
+		console.log(_request.url);
+		
+		_response.write("<h5>Hier sind deine bestellten Artikel:</h5>");
+		let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+		for (let key in url.query) {
+			_response.write("<p>" + key + ":" + url.query[key] + "</p", "<br>");
+		}
+	
+
+		
 		_response.end(); //Dem Server wird signalisiert, dass die Antwort vollständig ist --- server beenden strg + c 
 	} 
+	
  //Ende namespace

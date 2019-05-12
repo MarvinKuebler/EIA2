@@ -6,6 +6,7 @@ namespace IceDealerReloaded{
     function init(_event: Event): void {
         elemente(sortimentArray);
         document.getElementById("CheckOut").addEventListener("click", CheckOrder);
+        document.getElementById("CheckOut").addEventListener("click", WriteUrl);
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
 
         for (let i: number = 0; i < fieldsets.length; i++) {
@@ -44,7 +45,6 @@ namespace IceDealerReloaded{
     function elemente(daten: KeyArray): void {
         document.body.appendChild(fieldset);
         legend.innerHTML = "Our Flavours, Scoop and Topping: each 1€";
-        document.getElementById("HEROKU").appendChild(fieldset);
         fieldset.appendChild(legend);
         for (let datenArray in daten) {
             let value: IceDealerData[] = daten[datenArray];
@@ -70,7 +70,7 @@ namespace IceDealerReloaded{
                 document.getElementById("Flavours").appendChild(auswahl);
             }
 
-            if (OrderInput[i].checked == true && OrderInput[i].getAttribute("name") == "radiobutton") {
+            if (OrderInput[i].checked == true && OrderInput[i].getAttribute("name") == "Cup or Waffle") {
                 document.getElementById("ThatsYourOrder").innerHTML = startSumme.toFixed(2).toString() + " " + "€";
                 let behaelterWahl: HTMLElement = document.createElement("li");
                 behaelterWahl.innerHTML = `${OrderInput[i].getAttribute("id")}`;
@@ -124,6 +124,47 @@ function CheckOrder(_event: Event): void {
     }
     else {
         alert(`${CustomerData} please fill out the missing fields!`);
+    }
+}
+function WriteUrl(): void {
+    let CustomOrder: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    let url: string = "https://marvinkuebler.herokuapp.com/?";
+    for (let i: number = 0; i < CustomOrder.length; i++) {
+        
+
+        if (CustomOrder[i].name == "Shipping" && CustomOrder[i].checked == true) {
+            url += `${CustomOrder[i].name}:${CustomOrder[i].value}&`;
+        }
+
+        if (CustomOrder[i].name == "Cup or Waffle" && CustomOrder[i].checked == true) {
+            url += `${CustomOrder[i].name}:${CustomOrder[i].value}&`;
+        }
+
+        if (CustomOrder[i].type == "number" && Number(CustomOrder[i].value) > 0) {
+            url += `${CustomOrder[i].name}:${CustomOrder[i].value}&`;
+        }
+
+        if (CustomOrder[i].type == "checkbox" && CustomOrder[i].checked == true) {
+            url += `${CustomOrder[i].name}:${CustomOrder[i].value}&`;
+        }
+
+    }
+
+    sendRequestWithCustomData(url);
+}
+
+
+function sendRequestWithCustomData(_url: string): void {
+    let xhr: XMLHttpRequest = new XMLHttpRequest();
+    xhr.open("GET", _url, true);
+    xhr.addEventListener("readystatechange", handleStateChange);
+    xhr.send();
+}
+
+function handleStateChange(_event: ProgressEvent): void {
+    let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        document.getElementById("OrderSummary").innerHTML = xhr.response;
     }
 }
 }
