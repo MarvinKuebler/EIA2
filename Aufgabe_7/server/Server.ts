@@ -23,8 +23,8 @@ import * as Url from "url";
 		_response.setHeader("content-type", "text/html; charset=utf-8"); 
 		_response.setHeader("Access-Control-Allow-Origin", "*"); //anfragen bekommen serverzugriff
 
-		_response.write(_request.url); //
-		console.log(_request.url);
+		//_response.write(_request.url); //
+		//console.log(_request.url)*//
 		
 		_response.write("<h5>Hier sind deine bestellten Artikel:</h5>");
 		let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
