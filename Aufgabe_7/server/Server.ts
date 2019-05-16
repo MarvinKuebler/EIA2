@@ -24,7 +24,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 	// _response.write(_request.url); // _request.url wird in _response.write in der URL geschrieben, vom Server so empfangen --- 2.4 Was hinter Schrägstrich in der URL eingetragen wird, steht dann auch im Browser 
 	//console.log (_request.url);
 
-	_response.write("<h2> Folgende Artikel sind soeben bei uns bestellt worden:</h2>");
+	_response.write("<h2>That's Your Order</h2>");
 	let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 	for (let key in url.query)
 		_response.write("<p>" + key + url.query[key] + "</p>");
