@@ -1,5 +1,13 @@
 import * as Http from "http"; 
 import * as Url from "url";
+import * as Mongo from "mongodb";
+
+
+Mongo.connect("mongodb+srv://MarvinKuebler:<WolfGang>@marvinkueblereia-xrtq4.mongodb.net/test?retryWrites=true", MongoCallBack);
+
+function MongoCallBack(): {
+
+}
 
 
 console.log("Starting server"); 
