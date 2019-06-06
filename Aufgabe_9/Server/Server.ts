@@ -46,11 +46,10 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             Database.findAll(findCallback);
             break;
             case "search":
-            for(let key in query){
-                if(key == "matrikel"){
+            {
                     Database.SearchMatrikel(Number(matrikel), findCallback);
                 }
-            }
+            
                 break;
         default:
             respond(_response, "unknown command: " + command);
