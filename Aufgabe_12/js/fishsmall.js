@@ -1,6 +1,10 @@
 var Aquarium;
 (function (Aquarium) {
-    class Fishsmall {
+    class Fishsmall extends Aquarium.MovingObject {
+        constructor() {
+            super();
+            this.dx = Math.random() * 8 - 3;
+        }
         draw() {
             let body = new Path2D();
             body.ellipse(this.x, this.y, 30, 50, 1.5, 0, 2 * Math.PI);

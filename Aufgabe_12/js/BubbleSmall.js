@@ -1,6 +1,10 @@
 var Aquarium;
 (function (Aquarium) {
-    class Bubblesmall {
+    class Bubblesmall extends Aquarium.MovingObject {
+        constructor() {
+            super();
+            this.dy = Math.random() * -3 - 1;
+        }
         draw() {
             let bubble = new Path2D();
             bubble.arc(this.x, this.y, 12, 0, 2 * Math.PI);

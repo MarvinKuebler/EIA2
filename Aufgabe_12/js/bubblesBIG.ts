@@ -1,9 +1,13 @@
 namespace Aquarium {
-	export class BubbleBig {
+	export class BubbleBig extends MovingObject {
 		x: number;
 		y: number;
 		dy: number;
 		
+		constructor() {
+			super();
+			this.dy = Math.random() * -3 - 1;
+		}
 
 		draw(): void {
                 let bubble: Path2D = new Path2D();

@@ -1,10 +1,12 @@
 namespace Aquarium {
-	export class FishBig {
-		x: number;
-		y: number;
+	export class FishBig extends MovingObject {
 		dx: number;
 		
-		
+		constructor() {
+                        super();
+                        this.dx = Math.random() * 8 - 3;
+                        console.log(this.dx);
+                }
 
 		draw(): void {
                 let body: Path2D = new Path2D();
@@ -26,7 +28,7 @@ namespace Aquarium {
                 pupill.arc(this.x + 20, this.y - 2, 5, 0, 2 * Math.PI);
                 crc.fillStyle = "#000000";
                 crc.fill(pupill);
-            
+                crc.stroke(pupill);
 		}
 
 		update(): void {
@@ -38,7 +40,7 @@ namespace Aquarium {
 			this.x += this.dx;
 			if (this.x +30 > 900) {
                 this.x = 0;
-            }
+                }
 		}
 	}
 }

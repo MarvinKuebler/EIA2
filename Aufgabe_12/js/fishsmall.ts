@@ -1,8 +1,10 @@
 namespace Aquarium {
-    export class Fishsmall {
-        x: number;
-        y: number;
+    export class Fishsmall extends MovingObject {
         dx: number;
+        constructor() {
+            super();
+            this.dx = Math.random() * 8 - 3;
+    }
 
         draw(): void {
             let body: Path2D = new Path2D();

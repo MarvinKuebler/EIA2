@@ -1,6 +1,11 @@
 var Aquarium;
 (function (Aquarium) {
-    class FishBig {
+    class FishBig extends Aquarium.MovingObject {
+        constructor() {
+            super();
+            this.dx = Math.random() * 8 - 3;
+            console.log(this.dx);
+        }
         draw() {
             let body = new Path2D();
             body.ellipse(this.x, this.y, 40, 55, 1.5, 0, 2 * Math.PI);
@@ -20,6 +25,7 @@ var Aquarium;
             pupill.arc(this.x + 20, this.y - 2, 5, 0, 2 * Math.PI);
             Aquarium.crc.fillStyle = "#000000";
             Aquarium.crc.fill(pupill);
+            Aquarium.crc.stroke(pupill);
         }
         update() {
             this.move();
