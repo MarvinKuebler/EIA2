@@ -34,13 +34,13 @@ namespace Aquarium {
             let ArraySpieler: AquaHighScore[] = JSON.parse(xhr.response);
             
 
-            document.getElementById("name").innerHTML = "";
+            document.getElementById("playername").innerHTML = "";
             document.getElementById("score").innerHTML = "";
 
 
             for (let i: number = ArraySpieler.length-5; i < ArraySpieler.length; i++) {
     
-                document.getElementById("name").innerHTML += `<div>${ArraySpieler[i].name} : ${ArraySpieler[i].highscore} </div>`;
+                document.getElementById("playername").innerHTML += `<div>${ArraySpieler[i].name} : ${ArraySpieler[i].highscore} </div>`;
             }
 
             /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
