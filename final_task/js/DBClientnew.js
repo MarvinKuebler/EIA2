@@ -31,7 +31,8 @@ var Aquarium;
             document.getElementById("playername").innerHTML = "";
             document.getElementById("score").innerHTML = "";
             for (let i = ArraySpieler.length - 5; i < ArraySpieler.length; i++) {
-                document.getElementById("playername").innerHTML += `<div>${ArraySpieler[i].name} : ${ArraySpieler[i].highscore} </div>`;
+                console.log(ArraySpieler[i]);
+                document.getElementById("playername").innerHTML += `<div>${ArraySpieler[i].name} : ${ArraySpieler[i].Highscore} </div>`;
             }
             /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;

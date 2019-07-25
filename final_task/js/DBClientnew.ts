@@ -39,8 +39,9 @@ namespace Aquarium {
 
 
             for (let i: number = ArraySpieler.length-5; i < ArraySpieler.length; i++) {
+                console.log(ArraySpieler[i]);
     
-                document.getElementById("playername").innerHTML += `<div>${ArraySpieler[i].name} : ${ArraySpieler[i].highscore} </div>`;
+                document.getElementById("playername").innerHTML += `<div>${ArraySpieler[i].name} : ${ArraySpieler[i].Highscore} </div>`;
             }
 
             /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];

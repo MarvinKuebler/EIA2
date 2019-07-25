@@ -36,7 +36,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "insert":
             let player: AquaHighScore = {
                 name: query["name"],
-                highscore: parseInt(query["highscore"])
+                Highscore: parseInt(query["highscore"])
 
             };
             Database.insert(player);

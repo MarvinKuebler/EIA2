@@ -6,6 +6,6 @@ interface Scoreboard {
 
 interface AquaHighScore {
     name: string;
-    highscore: number;
+    Highscore: number;
 }
 
