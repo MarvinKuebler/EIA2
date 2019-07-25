@@ -3,7 +3,7 @@ var Aquarium;
     let serverAddress = "https://marvinkuebler.herokuapp.com/";
     function insert() {
         let query = "command=insert";
-        query += "&yourname=" + Aquarium.yournamehere + "&highscore=" + Aquarium.highscore;
+        query += "&name=" + Aquarium.yournamehere + "&highscore=" + Aquarium.highscore;
         sendRequest(query, handleInsertResponse);
     }
     Aquarium.insert = insert;
@@ -27,22 +27,17 @@ var Aquarium;
     function handleFindResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            /*let PlayerArray: AquaHighScore[] = JSON.parse(xhr.response);
-            
-
-            document.getElementById("nameID").innerHTML = "";
-            document.getElementById("punktestandID").innerHTML = "";
-
-
-           for (let i: number = PlayerArray.length-8; i < PlayerArray.length; i++) {
-    
-                document.getElementById("nameID").innerHTML += `<div>${PlayerArray[i].yournamehere} : ${PlayerArray[i].highscore} </div>`;
-           }*/
-            let output = document.getElementsByTagName("textarea")[0];
+            let ArraySpieler = JSON.parse(xhr.response);
+            document.getElementById("name").innerHTML = "";
+            document.getElementById("score").innerHTML = "";
+            for (let i = ArraySpieler.length - 5; i < ArraySpieler.length; i++) {
+                document.getElementById("name").innerHTML += `<div>${ArraySpieler[i].name} : ${ArraySpieler[i].highscore} </div>`;
+            }
+            /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
-            let responseAsJson = JSON.parse(xhr.response);
-            console.log(responseAsJson);
+            let responseAsJson: JSON = JSON.parse(xhr.response);
+            console.log(responseAsJson); */
         }
     }
 })(Aquarium || (Aquarium = {}));
-//# sourceMappingURL=DBClient.js.map
+//# sourceMappingURL=DBClientnew.js.map

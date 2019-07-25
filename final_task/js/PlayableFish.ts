@@ -60,20 +60,25 @@ else {
 }
 }
 
-eating (essen:AlleObjekte) : boolean {
-    if (Math.sqrt(Math.pow(Math.abs(this.x-essen.x),2) + Math.pow (Math.abs(this.y-essen.y),2)) <50 && essen.size > 0) {
+eating (essen:AlleObjekte) : string {
+    let xAbstand: number = Math.abs(this.x - essen.x);
+    let yAbstand: number = Math.abs(this.y - essen.y);
+    if (Math.sqrt(Math.pow(xAbstand,2) + Math.pow (yAbstand,2)) <50 ) {
         if (this.size > essen.size) {
             this.size++;
             highscore += 10;
-            return true;
+            return "goteaten";
         }
         else{
-            alert("you've died!");
-            return false;
-    
+            if(IsTheGameStillRunning==true){
+                window.clearTimeout (time);
+                alert("you've died!");
+                return "itsover";
+            }
         }
-        
-    }    
+    }   
+        return "nothing";
+    
 }
 
 move(): void{

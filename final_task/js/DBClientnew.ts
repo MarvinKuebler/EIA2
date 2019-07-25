@@ -3,10 +3,9 @@ namespace Aquarium {
 
     let serverAddress: string = "https://marvinkuebler.herokuapp.com/";
 
-
     export function insert(): void {
         let query: string = "command=insert";
-        query += "&yourname=" + yournamehere + "&highscore=" + highscore;
+        query += "&name=" + yournamehere  + "&highscore=" + highscore ;
         sendRequest(query, handleInsertResponse);
     }
 
@@ -32,26 +31,23 @@ namespace Aquarium {
     function handleFindResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
+            let ArraySpieler: AquaHighScore[] = JSON.parse(xhr.response);
             
-            /*let PlayerArray: AquaHighScore[] = JSON.parse(xhr.response);
-            
 
-            document.getElementById("nameID").innerHTML = "";
-            document.getElementById("punktestandID").innerHTML = "";
+            document.getElementById("name").innerHTML = "";
+            document.getElementById("score").innerHTML = "";
 
 
-           for (let i: number = PlayerArray.length-8; i < PlayerArray.length; i++) {
+            for (let i: number = ArraySpieler.length-5; i < ArraySpieler.length; i++) {
     
-                document.getElementById("nameID").innerHTML += `<div>${PlayerArray[i].yournamehere} : ${PlayerArray[i].highscore} </div>`;
-           }*/
+                document.getElementById("name").innerHTML += `<div>${ArraySpieler[i].name} : ${ArraySpieler[i].highscore} </div>`;
+            }
 
-             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
+            /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
             let responseAsJson: JSON = JSON.parse(xhr.response);
-            console.log(responseAsJson);
+            console.log(responseAsJson); */
         }
     }
 }
-
-
 

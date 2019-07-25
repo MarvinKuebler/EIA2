@@ -1,19 +1,21 @@
 var Aquarium;
 (function (Aquarium) {
     document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("keydown", bewegeDenFisch);
     Aquarium.highscore = 0;
     let fps = 30;
     let imageData;
     let ArrayAlleObjekte = [];
+    Aquarium.IsTheGameStillRunning = true;
     let playablefish;
     function init() {
         Aquarium.canvas = document.getElementsByTagName("canvas")[0];
         Aquarium.crc = Aquarium.canvas.getContext("2d");
+        Aquarium.refresh();
         drawBackground();
         imageData = Aquarium.crc.getImageData(0, 0, Aquarium.canvas.width, Aquarium.canvas.height);
         playablefish = new Aquarium.PlayableFish();
         playablefish.draw();
-        document.addEventListener("keydown", bewegeDenFisch);
         for (let i = 0; i < 10; i++) { //green fish
             let x = Math.floor(Math.random() * 1000) + 700;
             let y = Math.random() * Aquarium.canvas.height;
@@ -40,12 +42,12 @@ var Aquarium;
             fishie.draw();
             console.log(fishie);
         }
-        for (let i = 0; i < 25; i++) {
-            let x = Math.random() * Aquarium.canvas.width;
-            let y = Math.random() * Aquarium.canvas.height;
-            let dy = Math.random() * -3 - 1;
-            let bigbubbles;
-            bigbubbles = new Aquarium.BubbleBig();
+        /*for (let i: number = 0; i < 25; i++) {
+            let x: number = Math.random() * canvas.width;
+            let y: number = Math.random() * canvas.height;
+            let dy: number = Math.random() * -3 - 1;
+            let bigbubbles: BubbleBig;
+            bigbubbles = new BubbleBig();
             bigbubbles.x = x;
             bigbubbles.y = y;
             bigbubbles.dy = dy;
@@ -53,19 +55,20 @@ var Aquarium;
             bigbubbles.draw();
             console.log(bigbubbles);
         }
-        for (let i = 0; i < 25; i++) {
-            let x = Math.random() * Aquarium.canvas.width;
-            let y = Math.random() * Aquarium.canvas.height;
-            let dy = Math.random() * -2 - 1;
-            let smallbubbles;
-            smallbubbles = new Aquarium.Bubblesmall();
+
+        for (let i: number = 0; i < 25; i++) {
+            let x: number = Math.random() * canvas.width;
+            let y: number = Math.random() * canvas.height;
+            let dy: number = Math.random() * -2 - 1;
+            let smallbubbles: Bubblesmall;
+            smallbubbles = new Bubblesmall();
             smallbubbles.x = x;
             smallbubbles.y = y;
             smallbubbles.dy = dy;
             ArrayAlleObjekte.push(smallbubbles);
             smallbubbles.draw();
             console.log(smallbubbles);
-        }
+        }*/
         update();
     }
     function update() {
@@ -74,20 +77,24 @@ var Aquarium;
         Aquarium.crc.putImageData(imageData, 0, 0);
         for (let i = 0; i < ArrayAlleObjekte.length; i++) {
             ArrayAlleObjekte[i].update();
-            if (playablefish.eating(ArrayAlleObjekte[i]) == true) {
+            if (playablefish.eating(ArrayAlleObjekte[i]) == "goteaten") {
                 ArrayAlleObjekte.splice(i, 1);
             }
-            else if (playablefish.eating(ArrayAlleObjekte[i]) == false) {
-                ArrayAlleObjekte.splice(0, ArrayAlleObjekte.length);
+            else if (playablefish.eating(ArrayAlleObjekte[i]) == "itsover" && Aquarium.IsTheGameStillRunning == true) {
+                /*ArrayAlleObjekte.splice(0, ArrayAlleObjekte.length)*/
                 Aquarium.yournamehere = prompt("Your score:" + Aquarium.highscore + "insert your name");
                 Aquarium.insert();
                 Aquarium.refresh();
+                Aquarium.IsTheGameStillRunning = false;
             }
         }
         Aquarium.crc.fillStyle = "lightblue";
         Aquarium.crc.font = "2em Bangers";
         Aquarium.crc.fillText("Highscore: " + Aquarium.highscore.toString(), 570, 40);
         playablefish.update();
+        if (ArrayAlleObjekte.length == 0 && Aquarium.IsTheGameStillRunning == true) {
+            youwon();
+        }
     }
     function drawBackground() {
         let water = new Path2D();
@@ -129,6 +136,14 @@ var Aquarium;
             Aquarium.crc.stroke(weed1);
         }
     }
+    function youwon() {
+        Aquarium.IsTheGameStillRunning = false;
+        window.clearTimeout(Aquarium.time);
+        Aquarium.yournamehere = prompt("You don't suck! you've reached: " + Aquarium.highscore + "your name");
+        Aquarium.insert();
+        Aquarium.refresh();
+    }
+    Aquarium.youwon = youwon;
     function bewegeDenFisch(e) {
         if (e.keyCode == 65) {
             playablefish.x -= 25;

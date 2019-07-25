@@ -22,7 +22,8 @@ div {
 
 }
 #scoreboard {
-    text-align: right;
+    text-align: center;
+    
 }
 #MyCanvas {
     display: block;

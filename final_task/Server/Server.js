@@ -23,26 +23,17 @@ function handleRequest(_request, _response) {
     console.log("Request received");
     let query = Url.parse(_request.url, true).query;
     let command = query["command"];
-    let matrikel = query["matrikel"];
     switch (command) {
         case "insert":
-            let student = {
+            let player = {
                 name: query["name"],
-                firstname: query["firstname"],
-                matrikel: parseInt(query["matrikel"])
+                Highscore: parseInt(query["highscore"])
             };
-            Database.insert(student);
+            Database.insert(player);
             respond(_response, "storing data");
             break;
         case "refresh":
             Database.findAll(findCallback);
-            break;
-        case "search":
-            for (let key in query) {
-                if (key == "matrikel") {
-                    Database.SearchMatrikel(Number(matrikel), findCallback);
-                }
-            }
             break;
         default:
             respond(_response, "unknown command: " + command);

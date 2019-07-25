@@ -1,6 +1,7 @@
 
 
 namespace Aquarium{
+    
     export class AllObjects{
         x: number
         y: number

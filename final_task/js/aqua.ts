@@ -1,15 +1,19 @@
 namespace Aquarium {
 
     document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("keydown", bewegeDenFisch);
     export let crc: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
     
     export let highscore: number = 0;
     export let yournamehere: string;
+    export let time: number;
+
 
     let fps: number = 30;
     let imageData: ImageData;
     let ArrayAlleObjekte : AlleObjekte [] = []; 
+    export let IsTheGameStillRunning: boolean = true;
 
     let playablefish: PlayableFish;
 
@@ -17,13 +21,14 @@ namespace Aquarium {
     function init(): void {
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
+        refresh();
         drawBackground();
 
         imageData = crc.getImageData(0, 0, canvas.width, canvas.height);
         playablefish= new PlayableFish();
         playablefish.draw();
 
-        document.addEventListener("keydown", bewegeDenFisch);
+        
 
         for (let i: number = 0; i < 10; i++) { //green fish
             let x: number = Math.floor (Math.random()*1000)+700;
@@ -53,7 +58,7 @@ namespace Aquarium {
             console.log(fishie);
         }
 
-        for (let i: number = 0; i < 25; i++) {
+        /*for (let i: number = 0; i < 25; i++) {
             let x: number = Math.random() * canvas.width;
             let y: number = Math.random() * canvas.height;
             let dy: number = Math.random() * -3 - 1;
@@ -79,7 +84,7 @@ namespace Aquarium {
             ArrayAlleObjekte.push(smallbubbles);
             smallbubbles.draw();
             console.log(smallbubbles);
-        }
+        }*/
         update();
     }
 
@@ -88,19 +93,17 @@ namespace Aquarium {
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imageData, 0, 0);
 
-        
-        
-
         for (let i: number = 0; i < ArrayAlleObjekte.length; i++) {
             ArrayAlleObjekte[i].update();
-            if (playablefish.eating(ArrayAlleObjekte[i]) == true) {
+            if (playablefish.eating(ArrayAlleObjekte[i]) == "goteaten") {
                 ArrayAlleObjekte.splice(i,1);
             }
-            else if(playablefish.eating(ArrayAlleObjekte[i]) == false) {
-                ArrayAlleObjekte.splice(0, ArrayAlleObjekte.length);
+            else if(playablefish.eating(ArrayAlleObjekte[i]) == "itsover"&&IsTheGameStillRunning==true) {
+                /*ArrayAlleObjekte.splice(0, ArrayAlleObjekte.length)*/
                 yournamehere = prompt("Your score:" +  highscore + "insert your name" );
                 insert();
                 refresh();
+                IsTheGameStillRunning=false;
             }
         }
 
@@ -108,6 +111,10 @@ namespace Aquarium {
         crc.font ="2em Bangers";
         crc.fillText ("Highscore: " + highscore.toString(), 570, 40);
         playablefish.update();
+
+        if (ArrayAlleObjekte.length == 0 && IsTheGameStillRunning==true) {
+            youwon();
+        }
     }
 
     function drawBackground(): void {
@@ -160,6 +167,15 @@ namespace Aquarium {
         }
     }
 
+    export function youwon (){
+        IsTheGameStillRunning=false
+        window.clearTimeout (time);
+        yournamehere = prompt("You don't suck! you've reached: " + highscore + "your name");
+        insert ();
+        refresh();
+
+    }
+
     function bewegeDenFisch(e: KeyboardEvent):void{
         if (e.keyCode == 65) {
             playablefish.x -= 25;
@@ -180,6 +196,3 @@ namespace Aquarium {
         }
     } 
 }
-
-
-

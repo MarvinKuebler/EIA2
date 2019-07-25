@@ -52,17 +52,23 @@ var Aquarium;
             }
         }
         eating(essen) {
-            if (Math.sqrt(Math.pow(Math.abs(this.x - essen.x), 2) + Math.pow(Math.abs(this.y - essen.y), 2)) < 50 && essen.size > 0) {
+            let xAbstand = Math.abs(this.x - essen.x);
+            let yAbstand = Math.abs(this.y - essen.y);
+            if (Math.sqrt(Math.pow(xAbstand, 2) + Math.pow(yAbstand, 2)) < 50) {
                 if (this.size > essen.size) {
                     this.size++;
                     Aquarium.highscore += 10;
-                    return true;
+                    return "goteaten";
                 }
                 else {
-                    alert("you've died!");
-                    return false;
+                    if (Aquarium.IsTheGameStillRunning == true) {
+                        window.clearTimeout(Aquarium.time);
+                        alert("you've died!");
+                        return "itsover";
+                    }
                 }
             }
+            return "nothing";
         }
         move() {
             this.x += this.dx;
