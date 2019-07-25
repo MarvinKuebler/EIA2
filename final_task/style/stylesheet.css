@@ -1,0 +1,40 @@
+
+html {
+    background-color: #7BDDF2;   
+}
+h1{
+    font-family: 'Bangers', cursive;
+    font-size: 4em;
+    margin: 0, auto;
+    margin: 0, auto;
+    text-align: center;
+    color: darkblue;
+}
+h2{
+    font-family: 'Bangers', cursive;
+    font-size: 2em;
+    text-align: center;
+    color: darkblue;
+    
+}
+div {
+    font-family: 'Roboto', sans-serif;
+
+}
+#scoreboard {
+    text-align: right;
+}
+#MyCanvas {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid darkblue 5px;
+
+    
+}
+p {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
