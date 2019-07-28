@@ -31,17 +31,17 @@ namespace Aquarium {
     function handleFindResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let ArraySpieler: AquaHighScore[] = JSON.parse(xhr.response);
+            let ArrayGamer: AquaHighScore[] = JSON.parse(xhr.response);
             
 
             document.getElementById("playername").innerHTML = "";
             document.getElementById("score").innerHTML = "";
 
 
-            for (let i: number = ArraySpieler.length-5; i < ArraySpieler.length; i++) {
-                console.log(ArraySpieler[i]);
+            for (let i: number = ArrayGamer.length-10; i < ArrayGamer.length; i++) {
+                console.log(ArrayGamer[i]);
     
-                document.getElementById("playername").innerHTML += `<div>${ArraySpieler[i].name} : ${ArraySpieler[i].Highscore} </div>`;
+                document.getElementById("playername").innerHTML += `<div>${ArrayGamer[i].name} : ${ArrayGamer[i].Highscore} </div>`;
             }
 
             /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];

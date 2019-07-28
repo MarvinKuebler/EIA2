@@ -1,7 +1,7 @@
 
 html {
     background-color: #7BDDF2;   
-}
+}  
 h1{
     font-family: 'Bangers', cursive;
     font-size: 4em;
@@ -18,11 +18,16 @@ h2{
     
 }
 div {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Oswald', sans-serif;
+
 
 }
 #scoreboard {
     text-align: center;
+    border: solid darkblue;
+    margin-left: 28em;
+    margin-right: 28em;
+    background-image: linear-gradient(to bottom, #7bddf2, #73daf0, #6ad7ee, #60d3ed, #56d0eb, #56d0eb, #56d0eb, #56d0eb, #60d3ed, #6ad7ee, #73daf0, #7bddf2); 
     
 }
 #MyCanvas {

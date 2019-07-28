@@ -27,12 +27,12 @@ var Aquarium;
     function handleFindResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let ArraySpieler = JSON.parse(xhr.response);
+            let ArrayGamer = JSON.parse(xhr.response);
             document.getElementById("playername").innerHTML = "";
             document.getElementById("score").innerHTML = "";
-            for (let i = ArraySpieler.length - 5; i < ArraySpieler.length; i++) {
-                console.log(ArraySpieler[i]);
-                document.getElementById("playername").innerHTML += `<div>${ArraySpieler[i].name} : ${ArraySpieler[i].Highscore} </div>`;
+            for (let i = ArrayGamer.length - 10; i < ArrayGamer.length; i++) {
+                console.log(ArrayGamer[i]);
+                document.getElementById("playername").innerHTML += `<div>${ArrayGamer[i].name} : ${ArrayGamer[i].Highscore} </div>`;
             }
             /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;

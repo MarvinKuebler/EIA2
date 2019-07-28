@@ -1,5 +1,5 @@
 namespace Aquarium {
-        export class FishBig extends AlleObjekte {
+        export class FishBig extends AllObjects {
                 constructor () {
                         super();
                         this.size = 15;

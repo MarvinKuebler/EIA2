@@ -1,5 +1,5 @@
 namespace Aquarium{
-    export class AlleObjekte{
+    export class AllObjects{
         size: number;
         x: number;
         y: number;

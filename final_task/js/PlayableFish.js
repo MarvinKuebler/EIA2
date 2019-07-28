@@ -51,11 +51,11 @@ var Aquarium;
                 Aquarium.crc.fill(pupill);
             }
         }
-        eating(essen) {
-            let xAbstand = Math.abs(this.x - essen.x);
-            let yAbstand = Math.abs(this.y - essen.y);
+        eating(tastyfish) {
+            let xAbstand = Math.abs(this.x - tastyfish.x);
+            let yAbstand = Math.abs(this.y - tastyfish.y);
             if (Math.sqrt(Math.pow(xAbstand, 2) + Math.pow(yAbstand, 2)) < 50) {
-                if (this.size > essen.size) {
+                if (this.size > tastyfish.size) {
                     this.size++;
                     Aquarium.highscore += 10;
                     return "goteaten";

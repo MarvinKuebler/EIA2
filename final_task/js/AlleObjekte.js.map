@@ -1,1 +1,1 @@
-{"version":3,"file":"AlleObjekte.js","sourceRoot":"","sources":["AlleObjekte.ts"],"names":[],"mappings":"AAAA,IAAU,QAAQ,CAajB;AAbD,WAAU,QAAQ;IACd,MAAa,WAAW;QAOpB;QAEA,CAAC;QACD,MAAM,KAAG,CAAC;QAAA,CAAC;KACd;IAXY,oBAAW,cAWvB,CAAA;AACL,CAAC,EAbS,QAAQ,KAAR,QAAQ,QAajB"}
+{"version":3,"file":"AlleObjekte.js","sourceRoot":"","sources":["AlleObjekte.ts"],"names":[],"mappings":"AAAA,IAAU,QAAQ,CAajB;AAbD,WAAU,QAAQ;IACd,MAAa,UAAU;QAOnB;QAEA,CAAC;QACD,MAAM,KAAG,CAAC;QAAA,CAAC;KACd;IAXY,mBAAU,aAWtB,CAAA;AACL,CAAC,EAbS,QAAQ,KAAR,QAAQ,QAajB"}

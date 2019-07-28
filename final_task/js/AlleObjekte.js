@@ -1,11 +1,11 @@
 var Aquarium;
 (function (Aquarium) {
-    class AlleObjekte {
+    class AllObjects {
         constructor() {
         }
         update() { }
         ;
     }
-    Aquarium.AlleObjekte = AlleObjekte;
+    Aquarium.AllObjects = AllObjects;
 })(Aquarium || (Aquarium = {}));
 //# sourceMappingURL=AlleObjekte.js.map

@@ -1,6 +1,6 @@
 var Aquarium;
 (function (Aquarium) {
-    class FishBig extends Aquarium.AlleObjekte {
+    class FishBig extends Aquarium.AllObjects {
         constructor() {
             super();
             this.size = 15;

@@ -1,11 +1,11 @@
 var Aquarium;
 (function (Aquarium) {
     document.addEventListener("DOMContentLoaded", init);
-    document.addEventListener("keydown", bewegeDenFisch);
+    document.addEventListener("keydown", moveTheFish);
     Aquarium.highscore = 0;
     let fps = 30;
     let imageData;
-    let ArrayAlleObjekte = [];
+    let ArrayAllObjects = [];
     Aquarium.IsTheGameStillRunning = true;
     let playablefish;
     function init() {
@@ -25,7 +25,7 @@ var Aquarium;
             fish.x = x;
             fish.y = y;
             fish.dx = dx;
-            ArrayAlleObjekte.push(fish);
+            ArrayAllObjects.push(fish);
             fish.draw();
             console.log(fish);
         }
@@ -38,61 +38,33 @@ var Aquarium;
             fishie.x = x;
             fishie.y = y;
             fishie.dx = dx;
-            ArrayAlleObjekte.push(fishie);
+            ArrayAllObjects.push(fishie);
             fishie.draw();
             console.log(fishie);
         }
-        /*for (let i: number = 0; i < 25; i++) {
-            let x: number = Math.random() * canvas.width;
-            let y: number = Math.random() * canvas.height;
-            let dy: number = Math.random() * -3 - 1;
-            let bigbubbles: BubbleBig;
-            bigbubbles = new BubbleBig();
-            bigbubbles.x = x;
-            bigbubbles.y = y;
-            bigbubbles.dy = dy;
-            ArrayAlleObjekte.push(bigbubbles);
-            bigbubbles.draw();
-            console.log(bigbubbles);
-        }
-
-        for (let i: number = 0; i < 25; i++) {
-            let x: number = Math.random() * canvas.width;
-            let y: number = Math.random() * canvas.height;
-            let dy: number = Math.random() * -2 - 1;
-            let smallbubbles: Bubblesmall;
-            smallbubbles = new Bubblesmall();
-            smallbubbles.x = x;
-            smallbubbles.y = y;
-            smallbubbles.dy = dy;
-            ArrayAlleObjekte.push(smallbubbles);
-            smallbubbles.draw();
-            console.log(smallbubbles);
-        }*/
         update();
     }
     function update() {
         window.setTimeout(update, 1000 / fps);
         Aquarium.crc.clearRect(0, 0, Aquarium.canvas.width, Aquarium.canvas.height);
         Aquarium.crc.putImageData(imageData, 0, 0);
-        for (let i = 0; i < ArrayAlleObjekte.length; i++) {
-            ArrayAlleObjekte[i].update();
-            if (playablefish.eating(ArrayAlleObjekte[i]) == "goteaten") {
-                ArrayAlleObjekte.splice(i, 1);
+        for (let i = 0; i < ArrayAllObjects.length; i++) {
+            ArrayAllObjects[i].update();
+            if (playablefish.eating(ArrayAllObjects[i]) == "goteaten") {
+                ArrayAllObjects.splice(i, 1);
             }
-            else if (playablefish.eating(ArrayAlleObjekte[i]) == "itsover" && Aquarium.IsTheGameStillRunning == true) {
-                /*ArrayAlleObjekte.splice(0, ArrayAlleObjekte.length)*/
+            else if (playablefish.eating(ArrayAllObjects[i]) == "itsover" && Aquarium.IsTheGameStillRunning == true) {
                 Aquarium.yournamehere = prompt("Your score:" + Aquarium.highscore + "insert your name");
                 Aquarium.insert();
                 Aquarium.refresh();
                 Aquarium.IsTheGameStillRunning = false;
             }
         }
-        Aquarium.crc.fillStyle = "lightblue";
+        Aquarium.crc.fillStyle = "#7BDDF2";
         Aquarium.crc.font = "2em Bangers";
-        Aquarium.crc.fillText("Highscore: " + Aquarium.highscore.toString(), 570, 40);
+        Aquarium.crc.fillText("Highscore: " + Aquarium.highscore.toString(), 30, 40);
         playablefish.update();
-        if (ArrayAlleObjekte.length == 0 && Aquarium.IsTheGameStillRunning == true) {
+        if (ArrayAllObjects.length == 0 && Aquarium.IsTheGameStillRunning == true) {
             youwon();
         }
     }
@@ -106,14 +78,6 @@ var Aquarium;
         Aquarium.crc.createLinearGradient;
         Aquarium.crc.fillStyle = "#CDBA96";
         Aquarium.crc.fill(drawground);
-        for (let i = 0; i < 2500; i++) {
-            let x = Math.random() * Aquarium.canvas.width;
-            let y = Math.random() * 600 + 400;
-            let sand = new Path2D();
-            sand.arc(x, y, 1, 0, 2 * Math.PI);
-            Aquarium.crc.fillStyle = "#8b795e";
-            Aquarium.crc.fill(sand);
-        }
         let stone = new Path2D();
         stone.moveTo(520, 520);
         stone.quadraticCurveTo(100, 300, 50, 620);
@@ -144,7 +108,7 @@ var Aquarium;
         Aquarium.refresh();
     }
     Aquarium.youwon = youwon;
-    function bewegeDenFisch(e) {
+    function moveTheFish(e) {
         if (e.keyCode == 65) {
             playablefish.x -= 25;
             playablefish.direction = "links"; //links

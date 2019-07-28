@@ -1,7 +1,7 @@
 namespace Aquarium {
 
     document.addEventListener("DOMContentLoaded", init);
-    document.addEventListener("keydown", bewegeDenFisch);
+    document.addEventListener("keydown", moveTheFish);
     export let crc: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
     
@@ -12,7 +12,7 @@ namespace Aquarium {
 
     let fps: number = 30;
     let imageData: ImageData;
-    let ArrayAlleObjekte : AlleObjekte [] = []; 
+    let ArrayAllObjects : AllObjects [] = []; 
     export let IsTheGameStillRunning: boolean = true;
 
     let playablefish: PlayableFish;
@@ -39,7 +39,7 @@ namespace Aquarium {
             fish.x = x;
             fish.y = y;
             fish.dx = dx;
-            ArrayAlleObjekte.push(fish);
+            ArrayAllObjects.push(fish);
             fish.draw();
             console.log(fish);
         }
@@ -53,38 +53,11 @@ namespace Aquarium {
             fishie.x = x;
             fishie.y = y;
             fishie.dx = dx;
-            ArrayAlleObjekte.push(fishie);
+            ArrayAllObjects.push(fishie);
             fishie.draw();
             console.log(fishie);
         }
 
-        /*for (let i: number = 0; i < 25; i++) {
-            let x: number = Math.random() * canvas.width;
-            let y: number = Math.random() * canvas.height;
-            let dy: number = Math.random() * -3 - 1;
-            let bigbubbles: BubbleBig;
-            bigbubbles = new BubbleBig();
-            bigbubbles.x = x;
-            bigbubbles.y = y;
-            bigbubbles.dy = dy;
-            ArrayAlleObjekte.push(bigbubbles);
-            bigbubbles.draw();
-            console.log(bigbubbles);
-        }
-
-        for (let i: number = 0; i < 25; i++) {
-            let x: number = Math.random() * canvas.width;
-            let y: number = Math.random() * canvas.height;
-            let dy: number = Math.random() * -2 - 1;
-            let smallbubbles: Bubblesmall;
-            smallbubbles = new Bubblesmall();
-            smallbubbles.x = x;
-            smallbubbles.y = y;
-            smallbubbles.dy = dy;
-            ArrayAlleObjekte.push(smallbubbles);
-            smallbubbles.draw();
-            console.log(smallbubbles);
-        }*/
         update();
     }
 
@@ -93,13 +66,12 @@ namespace Aquarium {
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imageData, 0, 0);
 
-        for (let i: number = 0; i < ArrayAlleObjekte.length; i++) {
-            ArrayAlleObjekte[i].update();
-            if (playablefish.eating(ArrayAlleObjekte[i]) == "goteaten") {
-                ArrayAlleObjekte.splice(i,1);
+        for (let i: number = 0; i < ArrayAllObjects.length; i++) {
+            ArrayAllObjects[i].update();
+            if (playablefish.eating(ArrayAllObjects[i]) == "goteaten") {
+                ArrayAllObjects.splice(i,1);
             }
-            else if(playablefish.eating(ArrayAlleObjekte[i]) == "itsover"&&IsTheGameStillRunning==true) {
-                /*ArrayAlleObjekte.splice(0, ArrayAlleObjekte.length)*/
+            else if(playablefish.eating(ArrayAllObjects[i]) == "itsover"&&IsTheGameStillRunning==true) {
                 yournamehere = prompt("Your score:" +  highscore + "insert your name" );
                 insert();
                 refresh();
@@ -107,12 +79,12 @@ namespace Aquarium {
             }
         }
 
-        crc.fillStyle = "lightblue";
+        crc.fillStyle = "#7BDDF2";
         crc.font ="2em Bangers";
-        crc.fillText ("Highscore: " + highscore.toString(), 570, 40);
+        crc.fillText ("Highscore: " + highscore.toString(), 30, 40);
         playablefish.update();
 
-        if (ArrayAlleObjekte.length == 0 && IsTheGameStillRunning==true) {
+        if (ArrayAllObjects.length == 0 && IsTheGameStillRunning==true) {
             youwon();
         }
     }
@@ -131,15 +103,7 @@ namespace Aquarium {
         crc.fill(drawground);
 
 
-        for (let i: number = 0; i < 2500; i++) {
-            let x: number = Math.random() * canvas.width;
-            let y: number = Math.random() * 600 + 400;
-            let sand: Path2D = new Path2D();
-            sand.arc(x, y, 1, 0, 2 * Math.PI);
-            crc.fillStyle = "#8b795e";
-            crc.fill(sand);
-        }
-
+       
         let stone: Path2D = new Path2D();
         stone.moveTo(520, 520);
         stone.quadraticCurveTo(100, 300, 50, 620);
@@ -162,8 +126,6 @@ namespace Aquarium {
             crc.fill(weed1);
             crc.strokeStyle = "#556b2f";
             crc.stroke(weed1);
-
-
         }
     }
 
@@ -176,7 +138,7 @@ namespace Aquarium {
 
     }
 
-    function bewegeDenFisch(e: KeyboardEvent):void{
+    function moveTheFish(e: KeyboardEvent):void{
         if (e.keyCode == 65) {
             playablefish.x -= 25;
             playablefish.direction = "links"; //links
